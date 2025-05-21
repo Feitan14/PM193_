@@ -8,3 +8,4 @@ const persona = {
 };
 
 console.log("Hola me llamo",persona.nombre,",","tengo",persona.edad, "y vivo en",persona.direccion.ciudad, persona.direccion.pais); // Qro
+
