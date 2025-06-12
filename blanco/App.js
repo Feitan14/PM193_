@@ -4,9 +4,9 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 
 const Texto= (props)=>{
-  const {contenido}=props
+  const {children}=props
   return(
-    <Text>{contenido}</Text>
+    <Text>{children}</Text>
   )
 }
 
@@ -15,10 +15,10 @@ export default function App() {
   return (
 
     <View style={styles.container}>
-      <Texto contenido="Hola"></Texto>
-      <Texto contenido="Mundo"></Texto>
-      <Texto contenido="ReactNative"></Texto>
-      <Button title="presionale"></Button>
+      <Texto>Hola</Texto>
+      <Texto>Mundo</Texto>
+      <Texto>React</Texto>
+      <Button>Native</Button>
 
       <StatusBar style="auto" />
     </View>
@@ -35,3 +35,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
