@@ -1,17 +1,17 @@
 /* zona1: importaciones */
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 //componente propio texto
-const Texto= ()=>{
+const Texto= ({style})=>{
   const [contenido,setContenido]=useState('Hola mundo');
   const actualizaTexto=()=>{setContenido('Estado modificado')};
   return(
-    <Text onPress={actualizaTexto}>{contenido}</Text>
+      <Text style={[styles.Text,style]} onPress={actualizaTexto}>{contenido}</Text>
   )
 }
-// componente propio button
+/* componente propio button
 const Boton= ()=>{
   const [cBoton,setCBoton]=useState('Presionar');
   const actualizaBoton=()=>{setCBoton('Me presionaron')};
@@ -25,11 +25,10 @@ export default function App() {
   return (
 
     <View style={styles.container}>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Boton></Boton>
-
+      <Texto style={styles.azul}></Texto>
+      <Texto style={styles.verde}></Texto>
+      <Texto style={styles.negro}></Texto>
+      {/* <Boton></Boton> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -41,8 +40,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'strech',
     justifyContent: 'center',
   },
+  Text:{
+    color:'white',
+    fontSize:27,
+
+  },
+  azul:{backgroundColor:'red',},
+  verde:{backgroundColor:'green'},
+  negro:{backgroundColor:'black',}
 });
 
