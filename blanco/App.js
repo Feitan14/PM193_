@@ -1,36 +1,35 @@
 /* zona1: importaciones */
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Provider as ProveedorPaper } from 'react-native-paper';
 
-//componente propio texto
-const Texto= ({style})=>{
-  const [contenido,setContenido]=useState('Hola mundo');
-  const actualizaTexto=()=>{setContenido('Estado modificado')};
-  return(
-      <Text style={[styles.Text,style]} onPress={actualizaTexto}>{contenido}</Text>
-  )
-}
-/* componente propio button
-const Boton= ()=>{
-  const [cBoton,setCBoton]=useState('Presionar');
-  const actualizaBoton=()=>{setCBoton('Me presionaron')};
-  return(
-    <Button onPress={actualizaBoton}title={cBoton}></Button>
-  )
-}
 
 /*zona 2 main o zona de ejecución*/
 export default function App() {
-  return (
+  const [modoOscuro, setModoOscuro] = useState(false);
+  const alternarModoOscuro = () => setModoOscuro(previo =>!previo);
 
-    <View style={styles.container}>
-      <Texto style={styles.azul}></Texto>
-      <Texto style={styles.verde}></Texto>
-      <Texto style={styles.negro}></Texto>
-      {/* <Boton></Boton> */}
-      <StatusBar style="auto" />
-    </View>
+  return (
+    <ProveedorPaper>
+      <ScrollView contentContainerStyle={styles.ScrollContainer}>
+        <View style={[styles.container, {backgroundColor:modoOscuro?'#111' : '#fff'}]}></View>
+        <View styles={styles.container}>
+          <Text styles={Styles.title}>Modo de pantalla: {modoOscuro ? 'oscuro' : 'claro'}</Text>
+          <Switch value={modoOscuro} onValueChange={alternarModoOscuro}/>
+        </View  >
+
+        {/*boton 1*/}
+        <View style={styles.section}>
+          <Text style={styles.title}> Primer Boton</Text>
+          <Button
+          tittle="Boton Native"
+          color="#007bff"
+          onPress={() => window.alert('Boton Native Presionado')}
+          ></Button>
+        </View>
+        
+      </ScrollView>
+    </ProveedorPaper>
   );
 }
 
@@ -39,17 +38,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'strech',
-    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingButtom: 50
+    //flexDirection:'row'
   },
-  Text:{
-    color:'white',
-    fontSize:27,
 
+  title: {
+    fontSize: 16,
+    marginVertical: 6,
+    textAling: 'center',
+    color:'#000'
   },
-  azul:{backgroundColor:'red',},
-  verde:{backgroundColor:'green'},
-  negro:{backgroundColor:'black',}
+  section: {
+    marginVertical: 15,
+    alignItems: 'center',
+    width: '100%'
+  }
 });
+
 
