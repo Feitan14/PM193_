@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 const SplashScreen =() => {
     return(
         <View style={styles.container}>
-            <Image source={require('NProyecto/src/assets/4002676.jpg')}
+            <Image source={require('NProyecto/src/assets/logo.png')}
             style={styles.logo}
             resizeMode="contain"
             />
