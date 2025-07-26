@@ -30,6 +30,12 @@
         "projectId": "a0f608c7-901d-42a3-82c8-7d1eb083f673"
       }
     },
-    "owner": "andres_mora"
+    "owner": "andres_mora",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a0f608c7-901d-42a3-82c8-7d1eb083f673"
+    }
   }
 }
