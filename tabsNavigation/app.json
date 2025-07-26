@@ -24,6 +24,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a0f608c7-901d-42a3-82c8-7d1eb083f673"
+      }
+    },
+    "owner": "andres_mora"
   }
 }
